@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panda3Projekt1", "Panda3Projekt1.csproj", "{C825B230-C92A-4C16-878F-95796EFF155D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C825B230-C92A-4C16-878F-95796EFF155D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C825B230-C92A-4C16-878F-95796EFF155D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C825B230-C92A-4C16-878F-95796EFF155D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C825B230-C92A-4C16-878F-95796EFF155D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5C37DB4-4408-4FFF-8824-D90AE2C0C366}
+	EndGlobalSection
+EndGlobal
