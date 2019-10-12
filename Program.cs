@@ -27,7 +27,7 @@ namespace Panda3
                 if (menuOption == 8)
                 {
                     break;
-                }
+                 }
 
             }
 
