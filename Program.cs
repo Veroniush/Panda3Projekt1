@@ -23,11 +23,9 @@ namespace Panda3
                 Console.WriteLine("8. Exit");
                 int menuOption = Convert.ToInt32(Console.ReadLine());
 
-
                 if (menuOption == 8)
                 {
                     break;
-
                 }
                 if (menuOption == 2)
                 {
