@@ -29,6 +29,22 @@ namespace Panda3
                     break;
 
                 }
+                if(menuOption==2)
+                {
+                    if (File.Exists("5.txt")) //directory 5.txt!
+                    {
+                        int CharCount = 0;
+                        string FilePath = "5.txt"; //check dir 5.txt
+                        string FileText = new System.IO.StreamReader(FilePath).ReadToEnd().Replace("\r\n", "\r");
+                        CharCount = FileText.Length; 
+                        Console.WriteLine("File downloaded correctly.");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        break;
+                    }
 
             }
 
