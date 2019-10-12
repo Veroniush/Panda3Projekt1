@@ -23,20 +23,18 @@ namespace Panda3
                 Console.WriteLine("8. Exit");
                 int menuOption = Convert.ToInt32(Console.ReadLine());
 
-
                 if (menuOption == 8)
                 {
                     break;
-
                 }
-                if(menuOption==2)
+                if (menuOption == 2)
                 {
                     if (File.Exists("5.txt")) //directory 5.txt!
                     {
                         int CharCount = 0;
                         string FilePath = "5.txt"; //check dir 5.txt
                         string FileText = new System.IO.StreamReader(FilePath).ReadToEnd().Replace("\r\n", "\r");
-                        CharCount = FileText.Length; 
+                        CharCount = FileText.Length;
                         Console.WriteLine("File downloaded correctly.");
 
                     }
@@ -46,8 +44,9 @@ namespace Panda3
                         break;
                     }
 
-            }
+                }
 
+            }
         }
     }
 }
