@@ -48,6 +48,11 @@ namespace Panda3
             return numberOfPunctuationMarks;
         }
 
+        public static int CountSentenses(string text)
+        {
+            string[] sentenses = text.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            return sentenses.Length;
+        }
 
     }
 }
