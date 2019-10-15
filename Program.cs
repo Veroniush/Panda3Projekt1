@@ -11,6 +11,9 @@ namespace Panda3
     {
         static void Main(string[] args)
         {
+           
+
+
             while (true)
             {
 
@@ -80,10 +83,32 @@ namespace Panda3
                         Console.WriteLine("File doesn't exist");
                         break;
                     }
+               
+
+                }
+
+                if (menuOption == 4)
+                {
+                    if (File.Exists("5.txt"))
+                    {
+                        string s = File.ReadAllText("5.txt");
+                        Console.WriteLine("Numer of punctuation marks: {0}",StringHelper.CountPunctuationMark(s));
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+                       
+                        break;
+                    }
 
                 }
 
             }
+
+
         }
     }
 }
