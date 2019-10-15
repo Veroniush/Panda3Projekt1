@@ -14,7 +14,6 @@ namespace Panda3
     {
         /// <summary>
         /// function to count punctional marks in text
-        /// problem with ...
         /// </summary>
         public static int CountPunctuationMark(string text)
         {
@@ -48,11 +47,39 @@ namespace Panda3
             return numberOfPunctuationMarks;
         }
 
+        /// <summary>
+        /// function for counting sentenses
+        /// </summary>
         public static int CountSentenses(string text)
         {
             string[] sentenses = text.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return sentenses.Length;
         }
 
+        /// <summary>
+        /// function for counting letters
+        /// </summary>
+        public static int CountLetters(string text)
+        {
+            char[] chars = text.ToCharArray();
+            int numberOfLetters = 0;
+            for(int i=0; i<text.Length; i++)
+            {
+                if(char.IsLetter(chars[i]) == true)
+                {
+                    numberOfLetters = numberOfLetters + 1;
+                }
+            }
+            return numberOfLetters;
+        }
+
+        /// <summary>
+        /// not implemented
+        /// function for counting words
+        /// </summary>
+        public static int CountWords(string text)
+        {
+            return 0;
+        }
     }
 }
