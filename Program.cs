@@ -106,6 +106,24 @@ namespace Panda3
 
                 }
 
+                if (menuOption == 5)
+                {
+                    if (File.Exists("5.txt"))
+                    {
+                        string s = File.ReadAllText("5.txt");
+                        Console.WriteLine("Numer of sentenses: {0}", StringHelper.CountSentenses(s));
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+
+                        break;
+                    }
+
+                }
             }
 
 
