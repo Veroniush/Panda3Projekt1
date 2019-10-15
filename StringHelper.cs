@@ -24,11 +24,30 @@ namespace Panda3
             {
                 if(char.IsPunctuation(chars[i])==true)
                 {
-                    numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
+                    if(chars[i] == '.' && i < chars.Length - 2)
+                    {
+                        if(chars[i+1] == '.' && chars[i+2] == '.')
+                        {
+                            numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
+                            i = i + 2;
+                        }
+                        else
+                        {
+                            numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
+                        }
+                    }
+                    else
+                    {
+                        numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
+                    }
+                    
                 }
+
             }
            
             return numberOfPunctuationMarks;
         }
+
+
     }
 }
