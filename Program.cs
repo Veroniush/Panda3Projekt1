@@ -118,6 +118,25 @@ namespace Panda3
                     }
 
                 }
+
+                if(menuOption == 7)
+                {
+                    if (File.Exists("5.txt"))
+                    {
+                        string s = File.ReadAllText("5.txt");
+                        Statistics.CreateStatistic(s);
+                        Console.WriteLine("Statistics has been wroten in statystyki.txt");
+                    }
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        Statistics.CreateStatistic(null);
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+
+                        break;
+                    }
+                }
             }
         }
     }
