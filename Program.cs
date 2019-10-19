@@ -57,12 +57,12 @@ namespace Panda3
                     {
                         string s = File.ReadAllText(LocalFilePath);
                         Console.WriteLine("Number of words: {0}", StringHelper.CountWords(s));
-                        Console.WriteLine("Press any key to exit");
-                        Console.ReadKey();
                     }
                     else
                     {
                         Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
                         break;
                     }
                 }                
