@@ -42,8 +42,6 @@ namespace Panda3
                     {
                         string s = File.ReadAllText(LocalFilePath);
                         Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));                      
-                        Console.WriteLine("Press any key to exit");
-                        Console.ReadKey();
                     }
                     else
                     {
