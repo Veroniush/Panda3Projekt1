@@ -33,21 +33,23 @@ namespace Panda3
 
                 if(menuOption == 1)
                 {
-                    //TODO: funtionalitu to download file from web location - use field WebFilePath
-                    //save file to local path - use field LocalFilePath
+                    string fileContent = HttpHelper.GetContent(WebFilePath);
+                    File.WriteAllText(LocalFilePath, fileContent);
                 }
                 else if (menuOption == 2)
                 {
                     if (File.Exists(LocalFilePath))
                     {
                         string s = File.ReadAllText(LocalFilePath);
-                        Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));
+                        Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));                      
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
                     }
                     else
                     {
                         Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
                         break;
                     }
                 }
@@ -105,7 +107,7 @@ namespace Panda3
 
                         for (int i = 0; i < (int)char.MaxValue; i++)
                         {
-                            if (c[i] > 0 && char.IsLetterOrDigit((char)i))
+                            if (c[i] > 0 && char.IsLetter((char)i))
                             {
                                 Console.WriteLine("{0} :{1}", (char)i, c[i]);
                             }
