@@ -56,20 +56,35 @@ namespace Panda3
         /// <summary>
         /// function for counting letters
         /// </summary>
-        public static int CountLetters(string text)
+        public static int CountVowels(string text)
+        {
+            char[] chars = text.ToCharArray();
+            int numberOfVowes = 0;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (char.IsLetter(chars[i]) == true &&( chars[i].ToString().ToLower() == "a" || chars[i].ToString().ToLower() == "e" || chars[i].ToString().ToLower() == "i" || chars[i].ToString().ToLower() == "o" || chars[i].ToString().ToLower() == "u" || chars[i].ToString().ToLower() == "y"))
+                {
+                    numberOfVowes = numberOfVowes + 1;
+                }
+            }
+            return numberOfVowes;
+        }
+
+        public static int CountConstatnts(string text)
         {
             char[] chars = text.ToCharArray();
             int numberOfLetters = 0;
-            for(int i=0; i<text.Length; i++)
+           
+            for (int i = 0; i < text.Length; i++)
             {
-                if(char.IsLetter(chars[i]) == true)
+                if (char.IsLetter(chars[i]) == true)
                 {
                     numberOfLetters = numberOfLetters + 1;
                 }
             }
-            return numberOfLetters;
+            return numberOfLetters - StringHelper.CountVowels(text);
         }
-
         /// <summary>
         /// not implemented
         /// function for counting words

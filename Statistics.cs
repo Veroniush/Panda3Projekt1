@@ -23,7 +23,8 @@ namespace Panda3
             }
             else
             {
-                lines.Add("Number of letters: " + StringHelper.CountLetters(text).ToString());
+                lines.Add("Number of constatnts: " + StringHelper.CountConstatnts(text).ToString());
+                lines.Add("Number of vowels: " + StringHelper.CountVowels(text).ToString());
                 lines.Add("Number of words: " + StringHelper.CountWords(text).ToString());
                 lines.Add("Numer of punctuation marks: " + StringHelper.CountPunctuationMark(text).ToString());
                 lines.Add("Numer of sentenses: " + StringHelper.CountSentenses(text).ToString());
