@@ -38,13 +38,50 @@ namespace Panda3
                     }
                 }
 
-
-
-
-
-                if (menuOption == 8)
+                if (menuOption == 3)
                 {
-                    break;
+                    if (File.Exists("5.txt"))
+                    {
+                        
+                    }
+                    else
+                    { }
+
+
+                    if (menuOption == 8)
+                    {
+                        if (File.Exists("5.txt"))//directory 5.txt!
+                        {
+
+                            try
+                            {
+                                File.Delete("5.txt");//directory 5.txt!
+                            }
+                            catch (IOException e)
+                            {
+                                Console.WriteLine(e.Message);
+                               
+
+                                if (File.Exists("statistic.txt"))//directory statistic.txt!
+                                {
+
+                                    try
+                                    {
+                                        System.IO.File.Delete("statistic.txt");//directory statistic.txt!
+                                    }
+                                    catch (IOException a)
+                                    {
+                                        Console.WriteLine(a.Message);
+                                        return;
+
+                                        
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                       
                 }
                 if (menuOption == 2)
                 {
@@ -104,6 +141,7 @@ namespace Panda3
                     if (File.Exists("5.txt"))
                     {
                         string s = File.ReadAllText("5.txt");
+
                         Console.WriteLine("Numer of punctuation marks: {0}", StringHelper.CountPunctuationMark(s));
                     }
 
