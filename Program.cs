@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 
 namespace Panda3
@@ -25,16 +26,23 @@ namespace Panda3
                 Console.WriteLine("2. Zlicz liczbę liter w pobranym pliku.");
                 Console.WriteLine("3. Zlicz liczbę wyrazów w pliku.");
                 Console.WriteLine("4. Zlicz liczbę znaków interpunkcyjnych w pliku.");
-                Console.WriteLine("5. Zlicz liczbę zdań w pliku.");
+                Console.WriteLine("5. Zlicz liczbę zdań w pliku zakończonymi znakami interpunkcyjnymi.");
                 Console.WriteLine("6. Wygeneruj raport o użyciu liter (A-Z).");
                 Console.WriteLine("7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt .");
                 Console.WriteLine("8. Exit");
                 int menuOption = Convert.ToInt32(Console.ReadLine());
 
-                if(menuOption == 1)
+                if (menuOption == 1)
                 {
-                    string fileContent = HttpHelper.GetContent(WebFilePath);
-                    File.WriteAllText(LocalFilePath, fileContent);
+                    WebClient webClient = new WebClient();
+                    try
+                    {
+                        webClient.DownloadFile("https://s3.zylowski.net/public/input/5.txt?fbclid=IwAR1E-7Oh6St9e89VcEIQZ2zVyZhFoCY1fNK73fKvAtsanknNxUbbXVyCnMc", "5.txt");
+                    }
+                    catch (Exception e)
+                    {
+                        // some error
+                    }
                 }
                 else if (menuOption == 2)
                 {
@@ -90,9 +98,6 @@ namespace Panda3
                     }
                     else
                     {
-                        Console.WriteLine("File doesn't exist");
-                        Console.WriteLine("Press any key to exit");
-                        Console.ReadKey();
                         break;
                     }
                 }
