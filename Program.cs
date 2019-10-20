@@ -22,7 +22,7 @@ namespace Panda3
             while (true)
             {
 
-                Console.WriteLine("1. Pobierz plik z internetu.");
+                Console.WriteLine("1. Wybierz plik wejściowy.");
                 Console.WriteLine("2. Zlicz liczbę liter w pobranym pliku.");
                 Console.WriteLine("3. Zlicz liczbę wyrazów w pliku.");
                 Console.WriteLine("4. Zlicz liczbę znaków interpunkcyjnych w pliku.");
@@ -34,15 +34,45 @@ namespace Panda3
 
                 if (menuOption == 1)
                 {
-                    WebClient webClient = new WebClient();
-                    try
+                    Console.WriteLine("[T/N]");
+                    char choise = Convert.ToChar(Console.ReadKey());
+                    if (choise=='T')
                     {
-                        webClient.DownloadFile("https://s3.zylowski.net/public/input/5.txt?fbclid=IwAR1E-7Oh6St9e89VcEIQZ2zVyZhFoCY1fNK73fKvAtsanknNxUbbXVyCnMc", "5.txt");
+                        Console.WriteLine("Podaj ścieżkę pliku");
+                        string filepath = Convert.ToString(Console.ReadLine());
+                        Console.WriteLine("Podaj nazwę pliku");
+                        string namefile = Convert.ToString(Console.ReadLine());
+                        WebClient webClient = new WebClient();
+                        try
+                        {
+                            webClient.DownloadFile(filepath, namefile);
+                        }
+
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Podaj prawidłowe dane");
+                        }
+
                     }
-                    catch (Exception e)
+                   else
                     {
-                        // some error
+                        Console.WriteLine("Podaj nazwę pliku");
+                        string nametxt = Convert.ToString(Console.ReadLine());
+                        if (File.Exists(nametxt))
+                        {
+
+
+                            File.ReadAllText(nametxt);
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Plik nie istnieje.");
+                        }
+                        
                     }
+                   
+                 
                 }
                 else if (menuOption == 2)
                 {
