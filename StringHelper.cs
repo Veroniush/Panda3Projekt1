@@ -89,9 +89,20 @@ namespace Panda3
         /// not implemented
         /// function for counting words
         /// </summary>
-        public static int CountWords(string text)
+        public static int CountWordsWithout1letterWords(string text)
         {
-            return 0;
+                    int numberOfWords = 0;
+                    for (int i = 1; i < text.Length; i++)
+                    {
+                        if (char.IsWhiteSpace(text[i - 1]) == true)
+                        {
+                            if (char.IsLetterOrDigit(text[i]) == true && text[i].ToString().Length >1 )
+                            {
+                                numberOfWords++;
+                            }
+                        }
+                    }
+            return numberOfWords;
         }
 
         public static int[] CountDiffLetters(string text)
