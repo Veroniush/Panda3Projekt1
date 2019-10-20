@@ -10,6 +10,12 @@ namespace Panda3
 {
     class Program
     {
+        /// <summary>
+        /// local path to downloaded file
+        /// </summary>
+        public static string LocalFilePath = "5.txt";
+        public static string WebFilePath = "https://s3.zylowski.net/public/input/5.txt";
+
         static void Main(string[] args)
         {
             while (true)
@@ -38,109 +44,94 @@ namespace Panda3
                     }
                 }
 
-
-
-
-
-                if (menuOption == 8)
+                else if (menuOption == 2)
                 {
-                    break;
-                }
-                if (menuOption == 2)
-                {
-                    if (File.Exists("5.txt")) //directory 5.txt!
+                    if (File.Exists(LocalFilePath))
                     {
-                        string s = File.ReadAllText("5.txt");
-                        Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));
+                        string s = File.ReadAllText(LocalFilePath);
+                        Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));                      
+                    }
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
-
+                        break;
+                    }
+                }
+                else if(menuOption == 3)
+                {
+                    if (File.Exists(LocalFilePath)) 
+                    {
+                        string s = File.ReadAllText(LocalFilePath);
+                        Console.WriteLine("Number of words: {0}", StringHelper.CountWords(s));
                     }
                     else
                     {
                         Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
                         break;
                     }
-
-                }
-                if (menuOption == 6)
+                }                
+                else if (menuOption == 4)
                 {
-                    if (File.Exists("5.txt")) //directory 5.txt!
+                    if (File.Exists(LocalFilePath))
                     {
-                        int[] c = new int[(int)char.MaxValue];
-
-                        string s = File.ReadAllText("5.txt");
-
-              
-                        foreach (char t in s)
-                        {
-                         
-                            c[(int)t]++;
-                        }
-
-                     
-                        for (int i = 0; i < (int)char.MaxValue; i++)
-                        {
-                            if (c[i] > 0 &&
-                                char.IsLetterOrDigit((char)i))
-                            {
-                                Console.WriteLine("Letter: {0}  Frequency: {1}",
-                                    (char)i,
-                                    c[i]);
-                            }
-                        }
-                        Console.WriteLine("File downloaded correctly.");
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("File doesn't exist");
-                        break;
-                    }
-
-                }
-                if (menuOption == 4)
-                {
-                    if (File.Exists("5.txt"))
-                    {
-                        string s = File.ReadAllText("5.txt");
+                        string s = File.ReadAllText(LocalFilePath);
                         Console.WriteLine("Numer of punctuation marks: {0}", StringHelper.CountPunctuationMark(s));
                     }
-
                     else
                     {
                         Console.WriteLine("File doesn't exist");
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
-
                         break;
                     }
-
                 }
-                if (menuOption == 5)
+                else if (menuOption == 5)
                 {
-                    if (File.Exists("5.txt"))
+                    if (File.Exists(LocalFilePath))
                     {
-                        string s = File.ReadAllText("5.txt");
+                        string s = File.ReadAllText(LocalFilePath);
                         Console.WriteLine("Numer of sentenses: {0}", StringHelper.CountSentenses(s));
                     }
-
                     else
                     {
                         Console.WriteLine("File doesn't exist");
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
-
                         break;
                     }
-
                 }
-
-                if(menuOption == 7)
+                else if (menuOption == 6)
                 {
-                    if (File.Exists("5.txt"))
+                    if (File.Exists(LocalFilePath))
                     {
-                        string s = File.ReadAllText("5.txt");
+                        string s = File.ReadAllText(LocalFilePath);
+                        int[] c = StringHelper.CountDiffLetters(s);
+
+                        for (int i = 0; i < (int)char.MaxValue; i++)
+                        {
+                            if (c[i] > 0 && char.IsLetter((char)i))
+                            {
+                                Console.WriteLine("{0} :{1}", (char)i, c[i]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+                        break;
+                    }
+                }
+                else if (menuOption == 7)
+                {
+                    if (File.Exists(LocalFilePath))
+                    {
+                        string s = File.ReadAllText(LocalFilePath);
                         Statistics.CreateStatistic(s);
                         Console.WriteLine("Statistics has been wroten in statystyki.txt");
                     }
@@ -150,9 +141,12 @@ namespace Panda3
                         Statistics.CreateStatistic(null);
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
-
                         break;
                     }
+                }
+                else if (menuOption == 8)
+                {
+                    break;
                 }
             }
         }
