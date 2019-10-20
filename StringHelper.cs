@@ -39,11 +39,8 @@ namespace Panda3
                     {
                         numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
                     }
-
                 }
-
             }
-
             return numberOfPunctuationMarks;
         }
 
@@ -99,6 +96,18 @@ namespace Panda3
                 return c;
             }
             
+        }
+
+        public static int[] CountDiffLetters(string text)
+        {
+            int[] c = new int[(int)char.MaxValue];
+
+            foreach (char t in text)
+            {
+                c[(int)t]++;
+            }
+
+            return c;
         }
     }
 }
