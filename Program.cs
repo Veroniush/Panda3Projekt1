@@ -149,7 +149,9 @@ namespace Panda3
                     if (File.Exists("5.txt"))
                     {
                         string s = File.ReadAllText("5.txt");
-
+                        
+                        char[] MyChar = { ',', '!', '"', ';', ':', '<', '>' };
+                        string NewString = s.TrimEnd(MyChar);
                         Console.WriteLine("Numer of punctuation marks: {0}", StringHelper.CountPunctuationMark(s));
                     }
 
