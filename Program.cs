@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Net;
 
 namespace Panda3
 {
@@ -31,11 +31,19 @@ namespace Panda3
                 Console.WriteLine("8. Exit");
                 int menuOption = Convert.ToInt32(Console.ReadLine());
 
-                if(menuOption == 1)
+                if (menuOption == 1)
                 {
-                    string fileContent = HttpHelper.GetContent(WebFilePath);
-                    File.WriteAllText(LocalFilePath, fileContent);
+                    WebClient webClient = new WebClient();
+                    try
+                    {
+                        webClient.DownloadFile("https://s3.zylowski.net/public/input/5.txt?fbclid=IwAR1E-7Oh6St9e89VcEIQZ2zVyZhFoCY1fNK73fKvAtsanknNxUbbXVyCnMc", "5.txt");
+                    }
+                    catch (Exception e)
+                    {
+                        // some error
+                    }
                 }
+
                 else if (menuOption == 2)
                 {
                     if (File.Exists(LocalFilePath))
