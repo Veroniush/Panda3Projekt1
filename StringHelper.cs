@@ -77,7 +77,6 @@ namespace Panda3
         }
 
         public static int CountConstatnts(string text)
-
         {
             char[] chars = text.ToCharArray();
             int numberOfLetters = 0;
