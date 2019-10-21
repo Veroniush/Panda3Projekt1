@@ -49,8 +49,12 @@ namespace Panda3
         /// </summary>
         public static int CountSentenses(string text)
         {
-            string[] sentenses = text.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            string[] sentenses = text.Split(new char[] { '.', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return sentenses.Length;
+
+
         }
 
         /// <summary>

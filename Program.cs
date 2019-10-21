@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 
+
 namespace Panda3
 {
     class Program
@@ -21,11 +22,11 @@ namespace Panda3
             while (true)
             {
 
-                Console.WriteLine("1. Pobierz plik z internetu.");
+                Console.WriteLine("1. Wybierz plik wejściowy.");
                 Console.WriteLine("2. Zlicz liczbę liter w pobranym pliku.");
                 Console.WriteLine("3. Zlicz liczbę wyrazów w pliku.");
                 Console.WriteLine("4. Zlicz liczbę znaków interpunkcyjnych w pliku.");
-                Console.WriteLine("5. Zlicz liczbę zdań w pliku.");
+                Console.WriteLine("5. Zlicz liczbę zdań w pliku zakończonymi znakami interpunkcyjnymi.");
                 Console.WriteLine("6. Wygeneruj raport o użyciu liter (A-Z).");
                 Console.WriteLine("7. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt .");
                 Console.WriteLine("8. Exit");
@@ -33,15 +34,44 @@ namespace Panda3
 
                 if (menuOption == 1)
                 {
-                    WebClient webClient = new WebClient();
-                    try
+                    Console.WriteLine("[T/N]");
+                    char choise = Console.ReadKey().KeyChar;
+                   if (choise== 'T' || choise == 't')
                     {
-                        webClient.DownloadFile("https://s3.zylowski.net/public/input/5.txt?fbclid=IwAR1E-7Oh6St9e89VcEIQZ2zVyZhFoCY1fNK73fKvAtsanknNxUbbXVyCnMc", "5.txt");
+                        Console.WriteLine("Podaj ścieżkę pliku");
+                        string filepath = Convert.ToString(Console.ReadLine());
+                        Console.WriteLine("Podaj nazwę pliku");
+                        string namefile = Convert.ToString(Console.ReadLine());
+                        WebClient webClient = new WebClient();
+                        try
+                        {
+                            webClient.DownloadFile(filepath, namefile);
+                        }
+
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Podaj prawidłowe dane");
+                        }
+
                     }
-                    catch (Exception e)
+                   else
                     {
-                        // some error
+                       
+                        if (File.Exists(LocalFilePath))
+                        {
+
+
+                            File.ReadAllText(LocalFilePath);
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Plik nie istnieje.");
+                        }
+                        
                     }
+                   
+                 
                 }
 
 
@@ -165,9 +195,6 @@ namespace Panda3
                     }
                     else
                     {
-                        Console.WriteLine("File doesn't exist");
-                        Console.WriteLine("Press any key to exit");
-                        Console.ReadKey();
                         break;
                     }
                 }
