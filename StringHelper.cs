@@ -49,13 +49,18 @@ namespace Panda3
         /// </summary>
         public static int CountSentenses(string text)
         {
-            string[] sentenses = text.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            string[] sentenses = text.Split(new char[] { '.', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return sentenses.Length;
+
+
         }
 
         /// <summary>
         /// function for counting letters
         /// </summary>
+
         public static int CountVowels(string text)
         {
             char[] chars = text.ToCharArray();
@@ -72,6 +77,7 @@ namespace Panda3
         }
 
         public static int CountConstatnts(string text)
+
         {
             char[] chars = text.ToCharArray();
             int numberOfLetters = 0;
@@ -89,6 +95,7 @@ namespace Panda3
         /// not implemented
         /// function for counting words
         /// </summary>
+
         public static int CountWordsWithout1letterWords(string text)
         {
                     int numberOfWords = 0;
@@ -103,6 +110,7 @@ namespace Panda3
                         }
                     }
             return numberOfWords;
+
         }
 
         public static int[] CountDiffLetters(string text)
