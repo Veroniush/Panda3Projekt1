@@ -36,7 +36,7 @@ namespace Panda3
                 {
                     Console.WriteLine("[T/N]");
                     char choise = Console.ReadKey().KeyChar;
-                    if (choise=='T')
+                   if (choise== 'T' || choise == 't')
                     {
                         Console.WriteLine("Podaj ścieżkę pliku");
                         string filepath = Convert.ToString(Console.ReadLine());
