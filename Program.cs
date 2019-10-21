@@ -56,13 +56,12 @@ namespace Panda3
                     }
                    else
                     {
-                        Console.WriteLine("Podaj nazwę pliku");
-                        string nametxt = Convert.ToString(Console.ReadLine());
-                        if (File.Exists(nametxt))
+                       
+                        if (File.Exists(LocalFilePath))
                         {
 
 
-                            File.ReadAllText(nametxt);
+                            File.ReadAllText(LocalFilePath);
                         }
                         else
                         {
