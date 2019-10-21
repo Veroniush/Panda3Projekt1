@@ -56,7 +56,7 @@ namespace Panda3
         /// <summary>
         /// function for counting letters
         /// </summary>
-        public static int CountLetters(string text)
+        public static int Countwords(string text)
         {
             char[] chars = text.ToCharArray();
             int numberOfLetters = 0;
@@ -74,9 +74,28 @@ namespace Panda3
         /// not implemented
         /// function for counting words
         /// </summary>
-        public static int CountWords(string text)
+        public static int CountWords(string s)
         {
-            return 0;
+            {
+                int c = 0;
+                for (int i = 1; i < s.Length; i++)
+                {
+                    if (char.IsWhiteSpace(s[i - 1]) == true)
+                    {
+                        if (char.IsLetterOrDigit(s[i]) == true ||
+                            char.IsPunctuation(s[i]))
+                        {
+                            c++;
+                        }
+                    }
+                }
+                if (s.Length > 2)
+                {
+                    c++;
+                }
+                return c;
+            }
+            
         }
 
         public static int[] CountDiffLetters(string text)

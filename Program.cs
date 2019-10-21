@@ -49,10 +49,18 @@ namespace Panda3
                 {
                     if (File.Exists("5.txt"))
                     {
-                        
+                        string s = File.ReadAllText("5.txt");
+                        Console.WriteLine("Number of words: {0}", StringHelper.CountWords(s));
+                        Console.WriteLine("Press any key to exit");
+                        Console.ReadKey();
+
                     }
+
                     else
-                    { }
+                    {
+                        Console.WriteLine("File doesn't exist");
+                        break;
+                    }
 
 
                     if (menuOption == 8)
@@ -67,7 +75,7 @@ namespace Panda3
                             catch (IOException e)
                             {
                                 Console.WriteLine(e.Message);
-                               
+
 
                                 if (File.Exists("statistic.txt"))//directory statistic.txt!
                                 {
@@ -88,8 +96,8 @@ namespace Panda3
                             }
                         }
                     }
-                       
                 }
+                
                 if (menuOption == 2)
 
                 else if (menuOption == 2)
@@ -97,12 +105,17 @@ namespace Panda3
                 {
                     if (File.Exists(LocalFilePath))
                     {
+
+                        string s = File.ReadAllText("5.txt");
+                        Console.WriteLine("Number of letters: {0}", StringHelper.Countwords(s));
+
                         string s = File.ReadAllText(LocalFilePath);
                         Console.WriteLine("Number of letters: {0}", StringHelper.CountLetters(s));                      
                     }
                     else
                     {
                         Console.WriteLine("File doesn't exist");
+
                         Console.WriteLine("Press any key to exit");
                         Console.ReadKey();
                         break;
