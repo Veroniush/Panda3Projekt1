@@ -92,8 +92,30 @@ namespace Panda3
 
         public static int CountWordsWithout1letterWords(string text)
         {
-            //TODO
-            return 0;
+            char[] chars = text.ToCharArray();
+            string newText = "";
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (char.IsPunctuation(chars[i]) != true && char.IsDigit(chars[i]) != true && char.IsWhiteSpace(chars[i]) != true)
+                {
+                    newText = newText + chars[i].ToString();
+                }
+                else
+                {
+                    newText = newText + " ";
+                }
+            }
+            string[] words = newText.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            int numberOfWords = 0;
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > 1)
+                {
+                    numberOfWords++;
+                }
+            }
+            return numberOfWords;
         }
 
         public static int[] CountDiffLetters(string text)
