@@ -45,22 +45,17 @@ namespace Panda3
         }
 
         /// <summary>
-        /// function for counting sentenses
+        /// function for counting sentences with '.' and '?'
         /// </summary>
         public static int CountSentenses(string text)
         {
-
-
             string[] sentenses = text.Split(new char[] { '.', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return sentenses.Length;
-
-
         }
 
         /// <summary>
         /// function for counting letters
         /// </summary>
-
         public static int CountVowels(string text)
         {
             char[] chars = text.ToCharArray();
@@ -68,7 +63,11 @@ namespace Panda3
 
             for (int i = 0; i < text.Length; i++)
             {
-                if (char.IsLetter(chars[i]) == true &&( chars[i].ToString().ToLower() == "a" || chars[i].ToString().ToLower() == "e" || chars[i].ToString().ToLower() == "i" || chars[i].ToString().ToLower() == "o" || chars[i].ToString().ToLower() == "u" || chars[i].ToString().ToLower() == "y"))
+                if (
+                    char.IsLetter(chars[i]) == true 
+                    && (chars[i].ToString().ToLower() == "a" || chars[i].ToString().ToLower() == "e" || chars[i].ToString().ToLower() == "i" 
+                        || chars[i].ToString().ToLower() == "o" || chars[i].ToString().ToLower() == "u" || chars[i].ToString().ToLower() == "y")
+                   )
                 {
                     numberOfVowes = numberOfVowes + 1;
                 }
@@ -90,26 +89,11 @@ namespace Panda3
             }
             return numberOfLetters - StringHelper.CountVowels(text);
         }
-        /// <summary>
-        /// not implemented
-        /// function for counting words
-        /// </summary>
 
         public static int CountWordsWithout1letterWords(string text)
         {
-                    int numberOfWords = 0;
-                    for (int i = 1; i < text.Length; i++)
-                    {
-                        if (char.IsWhiteSpace(text[i - 1]) == true)
-                        {
-                            if (char.IsLetterOrDigit(text[i]) == true && text[i].ToString().Length >1 )
-                            {
-                                numberOfWords++;
-                            }
-                        }
-                    }
-            return numberOfWords;
-
+            //TODO
+            return 0;
         }
 
         public static int[] CountDiffLetters(string text)
