@@ -9,7 +9,7 @@ namespace Panda3
 {
     public class Statistics
     {
-        public static string StatisticsFilePath = "statystiki.txt";
+        public static string StatisticsFilePath = "statystyki.txt";
         /// <summary>
         /// functionality to write statistics in file statystiki.txt
         /// </summary>
@@ -25,7 +25,7 @@ namespace Panda3
             {
                 lines.Add("Number of constatnts: " + StringHelper.CountConstatnts(text).ToString());
                 lines.Add("Number of vowels: " + StringHelper.CountVowels(text).ToString());
-                lines.Add("Number of words: " + StringHelper.CountWords(text).ToString());
+                lines.Add("Number of words: " + StringHelper.CountWordsWithout1letterWords(text).ToString());
                 lines.Add("Numer of punctuation marks: " + StringHelper.CountPunctuationMark(text).ToString());
                 lines.Add("Numer of sentenses: " + StringHelper.CountSentenses(text).ToString());
             }
