@@ -4,3 +4,9 @@ C:\Users\Magdalena\Downloads\panda\Panda3Projekt1\bin\Debug\Panda3Projekt1.pdb
 C:\Users\Magdalena\Downloads\panda\Panda3Projekt1\obj\Debug\Panda3Projekt1.csprojAssemblyReference.cache
 C:\Users\Magdalena\Downloads\panda\Panda3Projekt1\obj\Debug\Panda3Projekt1.exe
 C:\Users\Magdalena\Downloads\panda\Panda3Projekt1\obj\Debug\Panda3Projekt1.pdb
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\bin\Debug\Panda3Projekt1.exe.config
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\bin\Debug\Panda3Projekt1.exe
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\bin\Debug\Panda3Projekt1.pdb
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\obj\Debug\Panda3Projekt1.csprojAssemblyReference.cache
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\obj\Debug\Panda3Projekt1.exe
+C:\Users\darus\Desktop\projekt git\Panda3Projekt1\obj\Debug\Panda3Projekt1.pdb
