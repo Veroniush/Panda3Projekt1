@@ -21,14 +21,14 @@ namespace Panda3
         {
             while (true)
             {
-                Console.WriteLine("1. Pobierz plik z internetu.");
+                Console.WriteLine("1. Pobierz plik z internetu lub ze ścieżki lokalnej");
                 Console.WriteLine("2. Zlicz liczbę samoglosek w pobranym pliku.");
                 Console.WriteLine("3. Zlicz liczbę społglosek w pobranym pliku.");
-                Console.WriteLine("4. Zlicz liczbę wyrazów w pliku.");
-                Console.WriteLine("5. Zlicz liczbę znaków interpunkcyjnych w pliku.");
-                Console.WriteLine("6. Zlicz liczbę zdań w pliku.");
+                Console.WriteLine("4. Zlicz liczbę wyrazów dluższych niż jedna litera w pliku.");
+                Console.WriteLine("5. Zlicz liczbę znaków interpunkcyjnych (tylko . i ?) w pliku.");
+                Console.WriteLine("6. Zlicz liczbę zdań kończących się na . i ? w pliku.");
                 Console.WriteLine("7. Wygeneruj raport o użyciu liter (A-Z) oraz liczbe zdań i wyrazów.");
-                Console.WriteLine("8. Zapisz statystyki z punktów 2-5 do pliku statystyki.txt .");
+                Console.WriteLine("8. Zapisz statystyki z punktów 2-6 do pliku statystyki.txt .");
                 Console.WriteLine("9. Exit");
 
                 int menuOption = Convert.ToInt32(Console.ReadLine());
@@ -146,16 +146,27 @@ namespace Panda3
                     {
                         string s = File.ReadAllText(LocalFilePath);
                         int[] c = StringHelper.CountDiffLetters(s);
+                        char[] vowels = new char[] { 'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U', 'y', 'Y' };
 
+                        Console.WriteLine("Vowels:");
                         for (int i = 0; i < (int)char.MaxValue; i++)
                         {
-                            if (c[i] > 0 && char.IsLetter((char)i))
-                            {
+                            if (c[i] > 0 && char.IsLetter((char)i) && vowels.Contains((char)i))
+                            {                              
                                 Console.WriteLine("{0} :{1}", (char)i, c[i]);
                             }
                         }
 
-                        //TODO: ADD NUMBER OF WORDS AND SENTENCES
+                        Console.WriteLine("Constrants:");
+                        for (int i = 0; i < (int)char.MaxValue; i++)
+                        {
+                            if (c[i] > 0 && char.IsLetter((char)i) && !vowels.Contains((char)i))
+                            {
+                                Console.WriteLine("{0} :{1}", (char)i, c[i]);
+                            }
+                        }
+                        Console.WriteLine("Number of sentenses: " + StringHelper.CountSentenses(s));
+                        Console.WriteLine("Number of words: " + StringHelper.CountWordsWithout1letterWords(s));
                     }
                     else
                     {
@@ -192,7 +203,7 @@ namespace Panda3
                         }
                         catch (IOException e)
                         {
-                            Console.WriteLine(e.Message);    
+                            Console.WriteLine(e.Message);
                         }
                     }
 
@@ -204,7 +215,7 @@ namespace Panda3
                         }
                         catch (IOException a)
                         {
-                            Console.WriteLine(a.Message);                         
+                            Console.WriteLine(a.Message);
                         }
                     }
                     return;
