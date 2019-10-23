@@ -88,7 +88,7 @@ namespace Panda3
                                 }
                             }
                         }
-                    }
+                    }break;
                 }
                 
                 if (menuOption == 2)
