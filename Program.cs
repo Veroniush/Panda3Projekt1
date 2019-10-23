@@ -118,7 +118,9 @@ namespace Panda3
                     if (File.Exists(LocalFilePath))
                     {
                         string s = File.ReadAllText(LocalFilePath);
-                        Console.WriteLine("Numer of punctuation marks: {0}", StringHelper.CountPunctuationMark(s));
+
+                        string vs = s.Replace("<", "").Replace(",", "").Replace(":", "").Replace(";", "").Replace("'", "").Replace("!","").Replace(">","");
+                        Console.WriteLine("Numer of punctuation marks: {0}", StringHelper.CountPunctuationMark(vs));
                     }
                     else
                     {
@@ -167,6 +169,7 @@ namespace Panda3
                         }
                         Console.WriteLine("Number of sentenses: " + StringHelper.CountSentenses(s));
                         Console.WriteLine("Number of words: " + StringHelper.CountWordsWithout1letterWords(s));
+
                     }
                     else
                     {
