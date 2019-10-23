@@ -39,66 +39,95 @@ namespace Panda3
                     {
                         numberOfPunctuationMarks = numberOfPunctuationMarks + 1;
                     }
-
                 }
-
             }
-
             return numberOfPunctuationMarks;
         }
 
         /// <summary>
-        /// function for counting sentenses
+        /// function for counting sentences with '.' and '?'
         /// </summary>
         public static int CountSentenses(string text)
         {
-            string[] sentenses = text.Split(new char[] { '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] sentenses = text.Split(new char[] { '.', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return sentenses.Length;
         }
 
         /// <summary>
         /// function for counting letters
         /// </summary>
-        public static int Countwords(string text)
+        public static int CountVowels(string text)
+        {
+            char[] chars = text.ToCharArray();
+            int numberOfVowes = 0;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (
+                    char.IsLetter(chars[i]) == true 
+                    && (chars[i].ToString().ToLower() == "a" || chars[i].ToString().ToLower() == "e" || chars[i].ToString().ToLower() == "i" 
+                        || chars[i].ToString().ToLower() == "o" || chars[i].ToString().ToLower() == "u" || chars[i].ToString().ToLower() == "y")
+                   )
+                {
+                    numberOfVowes = numberOfVowes + 1;
+                }
+            }
+            return numberOfVowes;
+        }
+
+        public static int CountConstatnts(string text)
         {
             char[] chars = text.ToCharArray();
             int numberOfLetters = 0;
-            for(int i=0; i<text.Length; i++)
+           
+            for (int i = 0; i < text.Length; i++)
             {
-                if(char.IsLetter(chars[i]) == true)
+                if (char.IsLetter(chars[i]) == true)
                 {
                     numberOfLetters = numberOfLetters + 1;
                 }
             }
-            return numberOfLetters;
+            return numberOfLetters - StringHelper.CountVowels(text);
         }
 
-        /// <summary>
-        /// not implemented
-        /// function for counting words
-        /// </summary>
-        public static int CountWords(string s)
+        public static int CountWordsWithout1letterWords(string text)
         {
+            char[] chars = text.ToCharArray();
+            string newText = "";
+            for (int i = 0; i < chars.Length; i++)
             {
-                int c = 0;
-                for (int i = 1; i < s.Length; i++)
+                if (char.IsPunctuation(chars[i]) != true && char.IsDigit(chars[i]) != true && char.IsWhiteSpace(chars[i]) != true)
                 {
-                    if (char.IsWhiteSpace(s[i - 1]) == true)
-                    {
-                        if (char.IsLetterOrDigit(s[i]) == true ||
-                            char.IsPunctuation(s[i]))
-                        {
-                            c++;
-                        }
-                    }
+                    newText = newText + chars[i].ToString();
                 }
-                if (s.Length > 2)
+                else
                 {
-                    c++;
+                    newText = newText + " ";
                 }
-                return c;
             }
-            
+            string[] words = newText.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            int numberOfWords = 0;
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > 1)
+                {
+                    numberOfWords++;
+                }
+            }
+            return numberOfWords;
+        }
+
+        public static int[] CountDiffLetters(string text)
+        {
+            int[] c = new int[(int)char.MaxValue];
+
+            foreach (char t in text)
+            {
+                c[(int)t]++;
+            }
+
+            return c;
         }
     }
 }
